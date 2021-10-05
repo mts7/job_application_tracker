@@ -1,0 +1,37 @@
+<?php
+
+use database\custom\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
+
+class CreateContactsTable extends Migration
+{
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('contacts', function (Blueprint $table) {
+			$table->uuidPrimary();
+			$table->string('name');
+			$table->string('email', 320);
+			$table->string('phone', 24);
+			$table->foreignCascade('company_id');
+			$table->string('job_title');
+			$table->foreignCascade('position_id');
+			$table->timestamps();
+		});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::dropIfExists('contacts');
+	}
+}
