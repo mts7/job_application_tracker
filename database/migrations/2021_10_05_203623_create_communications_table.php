@@ -1,7 +1,8 @@
 <?php
 
-use database\custom\Blueprint;
+use Database\Custom\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateCommunicationsTable extends Migration
@@ -11,30 +12,20 @@ class CreateCommunicationsTable extends Migration
 	 *
 	 * @return void
 	 */
-	public function up()
+	public function up(): void
 	{
-		Schema::create('communications', function (Blueprint $table) {
+		$schema = DB::connection()->getSchemaBuilder();
+		$schema->blueprintResolver(function ($table, $callback) {
+			return new Blueprint($table, $callback);
+		});
+		$schema->create('communications', function (Blueprint $table) {
 			$table->uuidPrimary();
 			$table->boolean('contact_initiated')->comment('Did the contact initiate communication?');
 			$table->timestamp('contacted_at')->nullable();
 			$table->foreignCascade('job_id');
-			$table->enum('reason', [
-				'apply',
-				'interview',
-				'questions',
-				'offer',
-				'acceptance',
-				'rejection',
-			])
-				->nullable();
+			$table->string('reason')->nullable();
 			$table->text('notes')->nullable();
-			$table->enum('method', [
-				'linkedIn',
-				'email',
-				'phone',
-				'video',
-				'physical',
-			]);
+			$table->string('method');
 			$table->timestamps();
 		});
 	}
@@ -44,7 +35,7 @@ class CreateCommunicationsTable extends Migration
 	 *
 	 * @return void
 	 */
-	public function down()
+	public function down(): void
 	{
 		Schema::dropIfExists('communications');
 	}

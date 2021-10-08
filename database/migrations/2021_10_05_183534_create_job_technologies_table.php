@@ -1,9 +1,8 @@
 <?php
 
-namespace database\migrations;
-
-use database\custom\Blueprint;
+use Database\Custom\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateJobTechnologiesTable extends Migration
@@ -15,7 +14,11 @@ class CreateJobTechnologiesTable extends Migration
 	 */
 	public function up(): void
 	{
-		Schema::create('job_technologies', function (Blueprint $table) {
+		$schema = DB::connection()->getSchemaBuilder();
+		$schema->blueprintResolver(function ($table, $callback) {
+			return new Blueprint($table, $callback);
+		});
+		$schema->create('job_technologies', function (Blueprint $table) {
 			$table->uuidPrimary();
 			$table->foreignCascade('job_id');
 			$table->foreignCascade('technology_id');

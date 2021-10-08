@@ -1,7 +1,8 @@
 <?php
 
-use database\custom\Blueprint;
+use Database\Custom\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateResumesTable extends Migration
@@ -13,7 +14,11 @@ class CreateResumesTable extends Migration
 	 */
 	public function up(): void
 	{
-		Schema::create('resumes', function (Blueprint $table) {
+		$schema = DB::connection()->getSchemaBuilder();
+		$schema->blueprintResolver(function ($table, $callback) {
+			return new Blueprint($table, $callback);
+		});
+		$schema->create('resumes', function (Blueprint $table) {
 			$table->uuidPrimary();
 			$table->string('title');
 			$table->positiveInteger('version');

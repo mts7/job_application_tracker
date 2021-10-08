@@ -1,9 +1,8 @@
 <?php
 
-namespace database\migrations;
-
-use database\custom\Blueprint;
+use Database\Custom\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateApplicationsTable extends Migration
@@ -13,9 +12,13 @@ class CreateApplicationsTable extends Migration
 	 *
 	 * @return void
 	 */
-	public function up()
+	public function up(): void
 	{
-		Schema::create('applications', function (Blueprint $table) {
+		$schema = DB::connection()->getSchemaBuilder();
+		$schema->blueprintResolver(function ($table, $callback) {
+			return new Blueprint($table, $callback);
+		});
+		$schema->create('applications', function (Blueprint $table) {
 			$table->uuidPrimary();
 			$table->foreignCascade('resume_id');
 			$table->foreignCascade('communication_id');
@@ -30,7 +33,7 @@ class CreateApplicationsTable extends Migration
 	 *
 	 * @return void
 	 */
-	public function down()
+	public function down(): void
 	{
 		Schema::dropIfExists('applications');
 	}

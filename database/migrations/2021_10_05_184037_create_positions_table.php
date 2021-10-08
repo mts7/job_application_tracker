@@ -1,7 +1,8 @@
 <?php
 
-use database\custom\Blueprint;
+use Database\Custom\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreatePositionsTable extends Migration
@@ -11,9 +12,13 @@ class CreatePositionsTable extends Migration
 	 *
 	 * @return void
 	 */
-	public function up()
+	public function up(): void
 	{
-		Schema::create('positions', function (Blueprint $table) {
+		$schema = DB::connection()->getSchemaBuilder();
+		$schema->blueprintResolver(function ($table, $callback) {
+			return new Blueprint($table, $callback);
+		});
+		$schema->create('positions', function (Blueprint $table) {
 			$table->uuidPrimary();
 			$table->string('name');
 			$table->timestamps();
@@ -25,7 +30,7 @@ class CreatePositionsTable extends Migration
 	 *
 	 * @return void
 	 */
-	public function down()
+	public function down(): void
 	{
 		Schema::dropIfExists('positions');
 	}

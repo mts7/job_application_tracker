@@ -1,7 +1,8 @@
 <?php
 
-use database\custom\Blueprint;
+use Database\Custom\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateJobsTable extends Migration
@@ -11,9 +12,13 @@ class CreateJobsTable extends Migration
 	 *
 	 * @return void
 	 */
-	public function up()
+	public function up(): void
 	{
-		Schema::create('jobs', function (Blueprint $table) {
+		$schema = DB::connection()->getSchemaBuilder();
+		$schema->blueprintResolver(function ($table, $callback) {
+			return new Blueprint($table, $callback);
+		});
+		$schema->create('jobs', function (Blueprint $table) {
 			$table->uuidPrimary();
 			$table->string('title');
 			$table->foreignCascade('company_id');
@@ -32,7 +37,7 @@ class CreateJobsTable extends Migration
 	 *
 	 * @return void
 	 */
-	public function down()
+	public function down(): void
 	{
 		Schema::dropIfExists('jobs');
 	}

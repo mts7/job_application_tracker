@@ -1,7 +1,8 @@
 <?php
 
-use database\custom\Blueprint;
+use Database\Custom\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateCommunicationContactsTable extends Migration
@@ -11,9 +12,13 @@ class CreateCommunicationContactsTable extends Migration
 	 *
 	 * @return void
 	 */
-	public function up()
+	public function up(): void
 	{
-		Schema::create('communication_contacts', function (Blueprint $table) {
+		$schema = DB::connection()->getSchemaBuilder();
+		$schema->blueprintResolver(function ($table, $callback) {
+			return new Blueprint($table, $callback);
+		});
+		$schema->create('communication_contacts', function (Blueprint $table) {
 			$table->uuidPrimary();
 			$table->foreignCascade('contact_id');
 			$table->foreignCascade('communication_id');
@@ -26,7 +31,7 @@ class CreateCommunicationContactsTable extends Migration
 	 *
 	 * @return void
 	 */
-	public function down()
+	public function down(): void
 	{
 		Schema::dropIfExists('communication_contacts');
 	}

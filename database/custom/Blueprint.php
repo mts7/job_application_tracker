@@ -1,12 +1,12 @@
 <?php
 
-namespace database\custom;
+namespace Database\Custom;
 
-use Illuminate\Database\Schema\Blueprint as BlueprintBase;
+use Illuminate\Database\Schema\Blueprint as BaseBlueprint;
 use Illuminate\Database\Schema\ColumnDefinition;
 use Illuminate\Database\Schema\ForeignKeyDefinition;
 
-class Blueprint extends BlueprintBase
+class Blueprint extends BaseBlueprint
 {
 	/**
 	 * Uses the foreignId method to add a constraint and cascading updates and deletes.
@@ -16,7 +16,7 @@ class Blueprint extends BlueprintBase
 	 */
 	public function foreignCascade(string $column): ForeignKeyDefinition
 	{
-		return $this->foreignId($column)
+		return $this->foreignUuid($column)
 			->constrained()
 			->onDelete('cascade')
 			->onUpdate('cascade');
