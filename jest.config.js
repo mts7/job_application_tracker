@@ -21,7 +21,7 @@ module.exports = {
 		'<rootDir>/pages/**/*.vue',
 	],
 	coverageDirectory: './coverage',
-	coveragePathIgnorePatterns: ['/node_modules/', '/vendor/'],
+	coveragePathIgnorePatterns: ['/node_modules/', '/vendor/', '/coverage/'],
 	coverageReporters: ['text', 'text-summary', 'cobertura', 'json', 'lcov'],
 	globals: {
 		'ts-jest': {
