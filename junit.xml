@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="0" errors="0" time="27.703">
-  <testsuite name="ExampleComponent" errors="0" failures="0" skipped="0" timestamp="2021-10-09T02:24:48" time="13.74" tests="1">
-    <testcase classname="ExampleComponent tests the example component" name="ExampleComponent tests the example component" time="0.468">
+<testsuites name="jest tests" tests="10" failures="0" errors="0" time="6.046">
+  <testsuite name="IndustryList" errors="0" failures="0" skipped="0" timestamp="2021-10-13T21:22:45" time="2.146" tests="1">
+    <testcase classname="IndustryList tests the industry list component" name="IndustryList tests the industry list component" time="0.032">
+    </testcase>
+  </testsuite>
+  <testsuite name="AddName" errors="0" failures="0" skipped="0" timestamp="2021-10-13T21:22:45" time="2.283" tests="7">
+    <testcase classname="AddName UI Elements tests the add name component" name="AddName UI Elements tests the add name component" time="0.027">
+    </testcase>
+    <testcase classname="AddName UI Elements verifies a label exists" name="AddName UI Elements verifies a label exists" time="0.024">
+    </testcase>
+    <testcase classname="AddName UI Elements verifies an input exists" name="AddName UI Elements verifies an input exists" time="0.009">
+    </testcase>
+    <testcase classname="AddName UI Elements verifies a button exists" name="AddName UI Elements verifies a button exists" time="0.007">
+    </testcase>
+    <testcase classname="AddName Methods verifies no emittance if there is no name value" name="AddName Methods verifies no emittance if there is no name value" time="0.006">
+    </testcase>
+    <testcase classname="AddName Methods verifies emittance if there is a name value" name="AddName Methods verifies emittance if there is a name value" time="0.011">
+    </testcase>
+    <testcase classname="AddName Methods verifies emittance when a value is entered and the button is clicked" name="AddName Methods verifies emittance when a value is entered and the button is clicked" time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="Industry" errors="0" failures="0" skipped="1" timestamp="2021-10-13T21:22:45" time="2.401" tests="2">
+    <testcase classname="Industry tests the industry component" name="Industry tests the industry component" time="0.026">
+    </testcase>
+    <testcase classname="Industry verifies the name is saved" name="Industry verifies the name is saved" time="0">
+      <skipped/>
     </testcase>
   </testsuite>
 </testsuites>

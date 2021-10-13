@@ -16,11 +16,11 @@ module.exports = {
 	},
 	collectCoverage: true,
 	collectCoverageFrom: [
-		'<rootDir>/components/**/*.vue',
-		'<rootDir>/layouts/**/*.vue',
-		'<rootDir>/pages/**/*.vue',
+		'<rootDir>/**/*.vue',
+		'!**/node_modules/**',
+		'!**/vendor/**',
 	],
-	coverageDirectory: './coverage',
+	coverageDirectory: '../../coverage',
 	coveragePathIgnorePatterns: ['/node_modules/', '/vendor/', '/coverage/'],
 	coverageReporters: ['text', 'text-summary', 'cobertura', 'json', 'lcov'],
 	globals: {
