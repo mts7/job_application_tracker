@@ -5,8 +5,11 @@
 		"target": "es5",
 		"sourceMap": true,
 		"moduleResolution": "node",
-		"experimentalDecorators": true
+		"experimentalDecorators": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"noImplicitReturns": true
 	},
-	"include": ["resources/js/**/*.ts"],
+	"include": ["resources/js/**/*.ts", "resources/js/**/*.vue"],
 	"exclude": ["node_modules", "vendor"]
 }

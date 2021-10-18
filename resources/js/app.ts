@@ -9,7 +9,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueCompositionAPI from '@vue/composition-api';
 import App from './views/App.vue';
-import ExampleComponent from './components/ExampleComponent.vue';
+import Industry from './pages/Industry.vue';
 
 /**
  * The following block of code may be used to automatically register your
@@ -23,14 +23,14 @@ import ExampleComponent from './components/ExampleComponent.vue';
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('app', App);
-Vue.component('example-component', ExampleComponent);
+Vue.component('industry', Industry);
 Vue.use(VueRouter);
 Vue.use(VueCompositionAPI);
 
 const routes = [
 	{
-		path: '/example',
-		component: ExampleComponent,
+		path: '/industry',
+		component: Industry,
 	},
 ];
 
