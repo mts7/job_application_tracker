@@ -22,8 +22,15 @@ export default Vue.extend({
 			names: [] as string[],
 		};
 	},
+	created() {
+		this.getNames();
+	},
 	methods: {
+		getNames(): void {
+			// TODO: get the names from the industry table
+		},
 		saveName(name: string): void {
+			this.names.push(name);
 			// TODO: save the name to the industry table
 			// TODO: refresh the IndustryList table
 		},

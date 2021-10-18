@@ -8,8 +8,7 @@
 		"experimentalDecorators": true,
 		"noImplicitAny": true,
 		"noImplicitThis": true,
-		"noImplicitReturns": true,
-		"types": ["webpack-env"]
+		"noImplicitReturns": true
 	},
 	"include": ["resources/js/**/*.ts", "resources/js/**/*.vue"],
 	"exclude": ["node_modules", "vendor"]
