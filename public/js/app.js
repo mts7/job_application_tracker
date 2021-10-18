@@ -3214,7 +3214,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "component_add-name" } }, [
     _c("label", { staticClass: "label-input", attrs: { for: "input_name" } }, [
-      _vm._v("Add a new " + _vm._s(_vm.fieldName))
+      _vm._v("\n\t\tAdd a new " + _vm._s(_vm.fieldName) + "\n\t")
     ]),
     _vm._v(" "),
     _c("input", {

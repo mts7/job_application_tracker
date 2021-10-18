@@ -14,3 +14,5 @@ yarn-error.log
 /.idea
 /.vscode
 /coverage/
+results.json
+junit.xml

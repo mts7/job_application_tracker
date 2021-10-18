@@ -1,20 +1,18 @@
 <template>
 	<div id="component_add-name">
-		<label for="input_name" class="label-input"
-			>Add a new {{ fieldName }}</label
-		>
+		<label for="input_name" class="label-input">
+			Add a new {{ fieldName }}
+		</label>
 		<input
 			type="text"
 			id="input_name"
 			class="input-text"
 			placeholder="Name"
-			v-model="nameValue"
-		/>
+			v-model="nameValue" />
 		<button
 			id="button_input_name"
 			class="button button-input"
-			@click="emitSaveName"
-		>
+			@click="emitSaveName">
 			Save
 		</button>
 	</div>
