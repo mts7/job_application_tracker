@@ -9,7 +9,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueCompositionAPI from '@vue/composition-api';
 import App from './views/App.vue';
-import Industry from './pages/Industry.vue';
+import router, { RoutesNames } from './router';
 
 /**
  * The following block of code may be used to automatically register your
@@ -23,21 +23,9 @@ import Industry from './pages/Industry.vue';
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('app', App);
-Vue.component('industry', Industry);
+Vue.prototype.$routesNames = RoutesNames;
 Vue.use(VueRouter);
 Vue.use(VueCompositionAPI);
-
-const routes = [
-	{
-		path: '/industry',
-		component: Industry,
-	},
-];
-
-const router = new VueRouter({
-	mode: 'history',
-	routes,
-});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

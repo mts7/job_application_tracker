@@ -1,6 +1,6 @@
 <template>
 	<NamePage
-		itemName="Industry"
+		itemName="Position"
 		:names="names"
 		@saveName="saveName"></NamePage>
 </template>
@@ -10,7 +10,7 @@ import Vue from 'vue';
 import NamePage from '../components/NamePage.vue';
 
 export default Vue.extend({
-	name: 'Industry',
+	name: 'Position',
 	components: {
 		NamePage,
 	},
@@ -19,17 +19,10 @@ export default Vue.extend({
 			names: [] as string[],
 		};
 	},
-	created() {
-		this.getNames();
-	},
 	methods: {
-		getNames(): void {
-			// TODO: get the names from the industry table
-		},
+		getNames(): void {},
 		saveName(name: string): void {
 			this.names.push(name);
-			// TODO: save the name to the industry table
-			// TODO: refresh the IndustryList table
 		},
 	},
 });

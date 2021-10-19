@@ -1,5 +1,6 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { createLocalVue, mount } from '@vue/test-utils';
 import Industry from '../Industry.vue';
+import { testElementId } from '../../utilities/jestHelpers.ts';
 
 const localVue = createLocalVue();
 
@@ -7,7 +8,7 @@ describe('Industry', () => {
 	let wrapper;
 
 	beforeEach(() => {
-		wrapper = shallowMount(Industry, {
+		wrapper = mount(Industry, {
 			localVue,
 		});
 	});
@@ -16,8 +17,8 @@ describe('Industry', () => {
 		wrapper.destroy();
 	});
 
-	it('tests the industry component', () => {
-		expect(wrapper.vm.$el.id).toStrictEqual('page-industry');
+	it('tests the industry component has the specific ID', () => {
+		testElementId(wrapper, 'page-industry');
 	});
 
 	it('verifies the name is saved in the data', () => {

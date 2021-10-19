@@ -1,5 +1,6 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import AddName from '../AddName.vue';
+import { testElementId } from '../../utilities/jestHelpers.ts';
 
 const localVue = createLocalVue();
 
@@ -21,7 +22,7 @@ describe('AddName', () => {
 
 	describe('UI Elements', () => {
 		it('tests the add name component', () => {
-			expect(wrapper.vm.$el.id).toStrictEqual('component_add-name');
+			testElementId(wrapper, 'component_add-name');
 		});
 
 		it('verifies a label exists', () => {
