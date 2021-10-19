@@ -3,6 +3,7 @@
 		<h3>{{ itemDisplayName }} List</h3>
 		<div>
 			<table
+				v-if="names.length > 0"
 				:id="`table_${itemUseName}-list`"
 				:aria-label="`${itemDisplayName} List Table`">
 				<thead>
@@ -18,6 +19,9 @@
 					</tr>
 				</tbody>
 			</table>
+			<div v-else :id="`text_${itemUseName}-list_no-records`">
+				{{ textNoRecords }}
+			</div>
 		</div>
 	</div>
 </template>
@@ -40,6 +44,11 @@ export default Vue.extend({
 			required: true,
 			type: Array,
 		},
+	},
+	data() {
+		return {
+			textNoRecords: 'No Records Found',
+		};
 	},
 });
 </script>
