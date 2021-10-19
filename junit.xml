@@ -1,30 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="10" failures="0" errors="0" time="7.059">
-  <testsuite name="IndustryList" errors="0" failures="0" skipped="0" timestamp="2021-10-18T14:18:19" time="2.429" tests="1">
-    <testcase classname="IndustryList tests the industry list component" name="IndustryList tests the industry list component" time="0.025">
+<testsuites name="jest tests" tests="12" failures="2" errors="0" time="9.425">
+  <testsuite name="NameList" errors="0" failures="1" skipped="0" timestamp="2021-10-19T12:34:19" time="2.464" tests="2">
+    <testcase classname="NameList tests the name list component" name="NameList tests the name list component" time="0.044">
+      <failure>Error: expect(received).toStrictEqual(expected) // deep equality
+
+Expected: &quot;component-industry-list&quot;
+Received: &quot;component-undefined-list&quot;
+    at Object.&lt;anonymous&gt; (/Users/mts7/Repositories/job_application_tracker/resources/js/components/__tests__/NameList.spec.js:23:29)
+    at Promise.then.completed (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/utils.js:390:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/utils.js:315:10)
+    at _callCircusTest (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/run.js:60:9)
+    at run (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
+    at jestAdapter (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-runner/build/testWorker.js:133:12)</failure>
+    </testcase>
+    <testcase classname="NameList verifies the number of names provided match table cell count" name="NameList verifies the number of names provided match table cell count" time="0.021">
     </testcase>
   </testsuite>
-  <testsuite name="AddName" errors="0" failures="0" skipped="0" timestamp="2021-10-18T14:18:19" time="2.539" tests="7">
-    <testcase classname="AddName UI Elements tests the add name component" name="AddName UI Elements tests the add name component" time="0.026">
+  <testsuite name="AddName" errors="0" failures="0" skipped="0" timestamp="2021-10-19T12:34:19" time="2.508" tests="7">
+    <testcase classname="AddName UI Elements tests the add name component" name="AddName UI Elements tests the add name component" time="0.031">
     </testcase>
-    <testcase classname="AddName UI Elements verifies a label exists" name="AddName UI Elements verifies a label exists" time="0.026">
+    <testcase classname="AddName UI Elements verifies a label exists" name="AddName UI Elements verifies a label exists" time="0.023">
     </testcase>
-    <testcase classname="AddName UI Elements verifies an input exists" name="AddName UI Elements verifies an input exists" time="0.011">
+    <testcase classname="AddName UI Elements verifies an input exists" name="AddName UI Elements verifies an input exists" time="0.009">
     </testcase>
-    <testcase classname="AddName UI Elements verifies a button exists" name="AddName UI Elements verifies a button exists" time="0.007">
+    <testcase classname="AddName UI Elements verifies a button exists" name="AddName UI Elements verifies a button exists" time="0.005">
     </testcase>
-    <testcase classname="AddName Methods verifies no emittance if there is no name value" name="AddName Methods verifies no emittance if there is no name value" time="0.007">
+    <testcase classname="AddName Methods verifies no emittance if there is no name value" name="AddName Methods verifies no emittance if there is no name value" time="0.005">
     </testcase>
-    <testcase classname="AddName Methods verifies emittance if there is a name value" name="AddName Methods verifies emittance if there is a name value" time="0.011">
+    <testcase classname="AddName Methods verifies emittance if there is a name value" name="AddName Methods verifies emittance if there is a name value" time="0.007">
     </testcase>
-    <testcase classname="AddName Methods verifies emittance when a value is entered and the button is clicked" name="AddName Methods verifies emittance when a value is entered and the button is clicked" time="0.021">
+    <testcase classname="AddName Methods verifies emittance when a value is entered and the button is clicked" name="AddName Methods verifies emittance when a value is entered and the button is clicked" time="0.012">
     </testcase>
   </testsuite>
-  <testsuite name="Industry" errors="0" failures="0" skipped="1" timestamp="2021-10-18T14:18:19" time="2.704" tests="2">
-    <testcase classname="Industry tests the industry component" name="Industry tests the industry component" time="0.026">
+  <testsuite name="Industry" errors="0" failures="1" skipped="0" timestamp="2021-10-19T12:34:19" time="4.603" tests="3">
+    <testcase classname="Industry tests the industry component" name="Industry tests the industry component" time="0.021">
+      <failure>Error: expect(received).toStrictEqual(expected) // deep equality
+
+Expected: &quot;page-industry&quot;
+Received: &quot;&quot;
+    at Object.&lt;anonymous&gt; (/Users/mts7/Repositories/job_application_tracker/resources/js/pages/__tests__/Industry.spec.js:20:29)
+    at Promise.then.completed (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/utils.js:390:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/utils.js:315:10)
+    at _callCircusTest (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at _runTest (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/run.js:60:9)
+    at run (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:167:21)
+    at jestAdapter (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-runner/build/runTest.js:475:34)
+    at Object.worker (/Users/mts7/Repositories/job_application_tracker/node_modules/jest-runner/build/testWorker.js:133:12)</failure>
     </testcase>
-    <testcase classname="Industry verifies the name is saved" name="Industry verifies the name is saved" time="0">
-      <skipped/>
+    <testcase classname="Industry verifies the name is saved in the data" name="Industry verifies the name is saved in the data" time="0.006">
+    </testcase>
+    <testcase classname="Industry verifies the acquisition of names" name="Industry verifies the acquisition of names" time="0.005">
     </testcase>
   </testsuite>
 </testsuites>
