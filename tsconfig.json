@@ -8,7 +8,8 @@
 		"experimentalDecorators": true,
 		"noImplicitAny": true,
 		"noImplicitThis": true,
-		"noImplicitReturns": true
+		"noImplicitReturns": true,
+		"allowSyntheticDefaultImports": true
 	},
 	"include": ["resources/js/**/*.ts", "resources/js/**/*.vue"],
 	"exclude": ["node_modules", "vendor"]

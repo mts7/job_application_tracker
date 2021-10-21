@@ -7,6 +7,8 @@
 import './bootstrap';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import { ValidationProvider, extend } from 'vee-validate';
+import { required } from 'vee-validate/dist/rules';
 import VueCompositionAPI from '@vue/composition-api';
 import App from './views/App.vue';
 import router, { RoutesNames } from './router';
@@ -23,9 +25,15 @@ import router, { RoutesNames } from './router';
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('app', App);
+Vue.component('ValidationProvider', ValidationProvider);
 Vue.prototype.$routesNames = RoutesNames;
 Vue.use(VueRouter);
 Vue.use(VueCompositionAPI);
+
+extend('required', {
+	...required,
+	message: 'This field is required',
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
