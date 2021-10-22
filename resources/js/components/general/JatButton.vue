@@ -1,6 +1,9 @@
 <template>
 	<div class="d-inline" :id="`${inputId}_container`">
-		<button class="btn btn-success" @click="$emit('buttonClicked', inputId)">
+		<button
+			class="btn btn-success"
+			:disabled="disabled"
+			@click="$emit('buttonClicked', inputId)">
 			{{ buttonText }}
 		</button>
 	</div>
@@ -15,6 +18,10 @@ export default Vue.extend({
 		buttonText: {
 			required: true,
 			type: String,
+		},
+		disabled: {
+			default: false,
+			type: Boolean,
 		},
 		inputId: {
 			required: true,

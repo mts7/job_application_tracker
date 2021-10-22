@@ -13,10 +13,20 @@
 				<input
 					:class="`input-${inputType}`"
 					:id="inputId"
+					:maxlength="maxLength"
 					:placeholder="inputPlaceholder"
 					:type="inputType"
 					v-model="inputValue"
-					v-on:input="$emit('input', $event.target.value)"/>
+					v-on:input="$emit('input', $event.target.value)" />
+			</div>
+		</div>
+		<div v-if="errors.length > 0" class="row">
+			<div class="col-sm-12">
+				<div class="alert alert-danger" :id="`error_input_${inputId}`">
+					<ul>
+						<li v-for="error in errors">{{ error }}</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -30,6 +40,12 @@ import { htmlInputTypes } from '../../utilities/lookups';
 export default Vue.extend({
 	name: 'JatInput',
 	props: {
+		errors: {
+			default: () => {
+				return [];
+			},
+			type: Array,
+		},
 		inputId: {
 			required: true,
 			type: String,
@@ -58,6 +74,10 @@ export default Vue.extend({
 		labelValue: {
 			default: '',
 			type: String,
+		},
+		maxLength: {
+			default: null,
+			type: Number,
 		},
 	},
 	computed: {
