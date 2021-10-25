@@ -3,6 +3,7 @@
 		<button
 			class="btn btn-success"
 			:disabled="disabled"
+			:id="`button_${inputId}`"
 			@click="$emit('buttonClicked', inputId)">
 			{{ buttonText }}
 		</button>

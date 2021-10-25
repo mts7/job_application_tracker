@@ -105,6 +105,7 @@ import Vue from 'vue';
 import { ValidationObserver, ValidationProvider } from 'vee-validate';
 import JatButton from './general/JatButton.vue';
 import JatInput from './general/JatInput.vue';
+import { IResumeFields } from '../types/Resume';
 
 export default Vue.extend({
 	name: 'ResumeForm',
@@ -121,13 +122,16 @@ export default Vue.extend({
 	},
 	methods: {
 		saveResume(inputId: string): void {
-			this.$emit('saveResume', {
+			const resumeFields: IResumeFields = {
 				title: this.inputTitle,
 				version: parseInt(this.inputVersion),
 				location: this.inputLocation,
 				phone: this.inputPhone,
 				email: this.inputEmail,
-			});
+				createdAt: null,
+				updatedAt: null,
+			};
+			this.$emit('saveResume', resumeFields);
 		},
 	},
 });

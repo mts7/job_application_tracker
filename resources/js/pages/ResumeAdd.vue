@@ -8,6 +8,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import ResumeForm from '../components/ResumeForm.vue';
+import RoutesNames from '../router/routesNames';
 import { IResumeFields } from '../types/Resume';
 
 export default Vue.extend({
@@ -16,6 +17,8 @@ export default Vue.extend({
 	methods: {
 		createResume(values: IResumeFields): void {
 			// TODO: save values to the database
+
+			this.$router.push(RoutesNames.resume);
 		},
 	},
 });

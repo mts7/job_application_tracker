@@ -9,7 +9,7 @@
 					{{ labelValue }}
 				</label>
 			</div>
-			<div :class="`col-sm-${inputColumns}}`">
+			<div :class="`col-sm-${inputColumns}`">
 				<input
 					:class="`input-${inputType}`"
 					:id="inputId"
@@ -20,11 +20,11 @@
 					v-on:input="$emit('input', $event.target.value)" />
 			</div>
 		</div>
-		<div v-if="errors.length > 0" class="row">
+		<div v-if="errors.length > 0" class="row input-error_container">
 			<div class="col-sm-12">
 				<div class="alert alert-danger" :id="`error_input_${inputId}`">
-					<ul>
-						<li v-for="error in errors">{{ error }}</li>
+					<ul class="input-error_list">
+						<li v-for="error in errors" class="input-error_item">{{ error }}</li>
 					</ul>
 				</div>
 			</div>

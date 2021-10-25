@@ -1,9 +1,16 @@
+import Vue from 'vue';
 import { createLocalVue, shallowMount, Wrapper } from '@vue/test-utils';
 import ResumeAdd from '../ResumeAdd.vue';
+import RoutesNames from '../../router/routesNames';
+import { IResumeFields } from '../../types/Resume';
 import { testElementId } from '../../utilities/jestHelpers';
-import Vue from 'vue';
 
 const localVue = createLocalVue();
+
+const routerPush = jest.fn();
+const $router = {
+	push: routerPush,
+};
 
 describe('ResumeAdd', () => {
 	let wrapper: Wrapper<Vue>;
@@ -15,6 +22,9 @@ describe('ResumeAdd', () => {
 			}
 		>(ResumeAdd, {
 			localVue,
+			mocks: {
+				$router,
+			},
 		});
 	});
 
@@ -27,8 +37,7 @@ describe('ResumeAdd', () => {
 	});
 
 	it('tests createResume', () => {
-		const spyCreateResume = jest.spyOn(wrapper.vm as any, 'createResume');
-		const fields = {
+		const fields: IResumeFields = {
 			title: 'title',
 			version: 1,
 			location: 'location',
@@ -38,6 +47,6 @@ describe('ResumeAdd', () => {
 			updatedAt: null,
 		};
 		(wrapper.vm as any).createResume(fields);
-		expect(spyCreateResume).toHaveBeenCalled();
+		expect(routerPush).toHaveBeenCalledWith(RoutesNames.resume);
 	});
 });

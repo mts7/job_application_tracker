@@ -1,21 +1,33 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { createLocalVue, shallowMount, Wrapper } from '@vue/test-utils';
 import AddName from '../AddName.vue';
-import { testElementId } from '../../utilities/jestHelpers.ts';
+import { testElementId } from '../../utilities/jestHelpers';
+import Vue from 'vue';
 
 const localVue = createLocalVue();
 
 describe('AddName', () => {
-	let wrapper;
+	const fieldName = 'AddName';
+	let wrapper: Wrapper<
+		Vue & {
+			emitSaveName: Function;
+			nameValue: string;
+		}
+	>;
 
 	afterEach(() => {
 		wrapper.destroy();
 	});
 
 	beforeEach(() => {
-		wrapper = shallowMount(AddName, {
+		wrapper = shallowMount<
+			Vue & {
+				emitSaveName: Function;
+				nameValue: string;
+			}
+		>(AddName, {
 			localVue,
 			propsData: {
-				fieldName: 'AddName',
+				fieldName,
 			},
 		});
 	});
@@ -28,6 +40,7 @@ describe('AddName', () => {
 		it('verifies a label exists', () => {
 			const label = wrapper.find('label.label-input');
 			expect(label.exists()).toBe(true);
+			expect(label.text()).toEqual(`Add a new ${fieldName}`);
 		});
 
 		it('verifies an input exists', () => {
@@ -38,6 +51,7 @@ describe('AddName', () => {
 		it('verifies a button exists', () => {
 			const button = wrapper.find('button#button_input_name');
 			expect(button.exists()).toBe(true);
+			expect(button.text()).toEqual('Save');
 		});
 	});
 
@@ -57,7 +71,7 @@ describe('AddName', () => {
 			expect(wrapper.vm.nameValue).toBe(nameValue);
 
 			wrapper.vm.emitSaveName();
-			expect(wrapper.emitted().addNameSave[0][0]).toBe(nameValue);
+			expect(wrapper.emitted('addNameSave')).toStrictEqual([[nameValue]]);
 			expect(wrapper.vm.nameValue).toBe('');
 		});
 
@@ -77,7 +91,7 @@ describe('AddName', () => {
 			const button = wrapper.find('button#button_input_name');
 			button.trigger('click');
 			// verify the value was emitted and then cleared
-			expect(wrapper.emitted().addNameSave[0][0]).toBe(nameValue);
+			expect(wrapper.emitted('addNameSave')).toStrictEqual([[nameValue]]);
 			expect(wrapper.vm.nameValue).toBe('');
 		});
 	});

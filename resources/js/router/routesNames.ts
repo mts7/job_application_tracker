@@ -5,6 +5,7 @@ export interface IRoutesNames {
 	industry: string;
 	notFound: string;
 	position: string;
+	resume: string;
 	resumeAdd: string;
 }
 
@@ -13,6 +14,7 @@ const routesNames: Readonly<IRoutesNames> = {
 	industry: 'industry',
 	notFound: 'notFound',
 	position: 'position',
+	resume: 'resume',
 	resumeAdd: 'resumeAdd',
 };
 

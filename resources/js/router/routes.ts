@@ -21,6 +21,11 @@ export const Routes: RouteConfig[] = [
 		component: () => import('../pages/Position.vue'),
 	},
 	{
+		path: '/resume',
+		name: RoutesNames.resume,
+		component: () => import('../pages/Resume.vue'),
+	},
+	{
 		path: '/resume-add',
 		name: RoutesNames.resumeAdd,
 		component: () => import('../pages/ResumeAdd.vue'),

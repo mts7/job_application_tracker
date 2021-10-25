@@ -1,7 +1,8 @@
+import Vue from 'vue';
 import { createLocalVue, shallowMount, Wrapper } from '@vue/test-utils';
 import ResumeForm from '../ResumeForm.vue';
+import { IResumeFields } from '../../types/Resume';
 import { testElementId } from '../../utilities/jestHelpers';
-import Vue from 'vue';
 
 const localVue = createLocalVue();
 
@@ -42,12 +43,14 @@ describe('ResumeForm', () => {
 
 		const inputId = 'input_tester';
 		wrapper.vm.saveResume(inputId);
-		const expected = {
+		const expected: IResumeFields = {
 			title: data.inputTitle,
 			version: parseInt(data.inputVersion),
 			location: data.inputLocation,
 			phone: data.inputPhone,
 			email: data.inputEmail,
+			createdAt: null,
+			updatedAt: null,
 		};
 		expect(wrapper.emitted('saveResume')).toStrictEqual([[expected]]);
 	});
