@@ -7,9 +7,9 @@
 import './bootstrap';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VueCompositionAPI from '@vue/composition-api';
 import App from './views/App.vue';
 import router, { RoutesNames } from './router';
+import './validation';
 
 /**
  * The following block of code may be used to automatically register your
@@ -25,7 +25,6 @@ import router, { RoutesNames } from './router';
 Vue.component('app', App);
 Vue.prototype.$routesNames = RoutesNames;
 Vue.use(VueRouter);
-Vue.use(VueCompositionAPI);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
