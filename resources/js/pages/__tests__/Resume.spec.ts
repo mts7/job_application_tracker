@@ -6,18 +6,10 @@ import { testElementId } from '../../utilities/jestHelpers';
 const localVue = createLocalVue();
 
 describe('Resume', () => {
-	let wrapper: Wrapper<
-		Vue & {
-			key: any;
-		}
-	>;
+	let wrapper: Wrapper<Vue>;
 
 	beforeEach(() => {
-		wrapper = shallowMount<
-			Vue & {
-				key: string;
-			}
-		>(Resume, {
+		wrapper = shallowMount<Vue>(Resume, {
 			localVue,
 		});
 	});

@@ -1,7 +1,7 @@
+import Vue from 'vue';
 import { createLocalVue, shallowMount, Wrapper } from '@vue/test-utils';
 import NotFound from '../NotFound.vue';
 import { testElementId } from '../../utilities/jestHelpers';
-import Vue from 'vue';
 
 const localVue = createLocalVue();
 

@@ -13,7 +13,11 @@ const $router = {
 };
 
 describe('ResumeAdd', () => {
-	let wrapper: Wrapper<Vue>;
+	let wrapper: Wrapper<
+		Vue & {
+			createResume: Function;
+		}
+	>;
 
 	beforeEach(() => {
 		wrapper = shallowMount<
@@ -46,7 +50,7 @@ describe('ResumeAdd', () => {
 			createdAt: null,
 			updatedAt: null,
 		};
-		(wrapper.vm as any).createResume(fields);
+		wrapper.vm.createResume(fields);
 		expect(routerPush).toHaveBeenCalledWith(RoutesNames.resume);
 	});
 });
